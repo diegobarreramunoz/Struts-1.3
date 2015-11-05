@@ -18,11 +18,13 @@
     <body>
         <h1>Guardar</h1><br>
         <html:form action="/controlador1.do" method="post">
-            Rut      :<html:text property="rutC"/><br>
-            telefono :<html:text property="telefono"/><br>
-            email    :<html:text property="email"/><br>
-            direccion:<html:text property="direccion"/><br>
-            nombre   :<html:text property="nombre"/><br>
+            <table>
+                <tr><td>Rut:</td><td><html:text property="rutC"/></td></tr>
+                <tr><td>telefono:</td><td><html:text property="telefono"/></td></tr>
+                <tr><td>email:</td><td><html:text property="email"/></td></tr>
+                <tr><td>direccion:</td><td><html:text property="direccion"/></td></tr>
+                <tr><td>nombre:</td><td><html:text property="nombre"/></td></tr>
+            </table>
             <html:submit/>
         </html:form>
     </body>

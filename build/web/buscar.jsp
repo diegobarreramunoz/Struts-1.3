@@ -14,14 +14,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Buscar Cliente</title>
     </head>
     <body>
         <h1>Buscar Cliente</h1><br>
-        <html:form action="/buscar1.do" method="post">
-            <html:text property="rutC"/><br>
-            <html:submit>Buscar</html:submit><br>
-        </html:form>
+            <html:form action="/buscar1.do" method="post">
+                <table>
+                <tr>
+                    <td>Ingrese Rut Cliente</td>
+                    <td><html:text property="rutC"/></td>
+                </tr>
+                <tr>
+                    <td><html:submit>Buscar</html:submit></td>
+                </tr>
+                </table>
+            </html:form>
         <bean:write name="Cliente" property="rutC"/><br>
         <bean:write name="Cliente" property="nombre"/><br>
         <bean:write name="Cliente" property="telefono"/><br>
