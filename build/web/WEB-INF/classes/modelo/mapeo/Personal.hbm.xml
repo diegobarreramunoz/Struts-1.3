@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-11-2015 16:48:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="BDserviciotecnico" name="modelo.entidades.Personal" optimistic-lock="version" schema="dbo" table="PERSONAL">
+    <id name="rutP" type="string">
+      <column length="10" name="RUT_P"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.entidades.Tienda" fetch="select" name="tienda">
+      <column name="COD_TIENDA" not-null="true"/>
+    </many-to-one>
+    <property name="contrasena" type="string">
+      <column length="10" name="CONTRASENA"/>
+    </property>
+    <property name="permiso" type="java.lang.Character">
+      <column length="1" name="PERMISO"/>
+    </property>
+    <property name="colores" type="string">
+      <column length="23" name="COLORES"/>
+    </property>
+    <property name="titulo" type="string">
+      <column length="70" name="TITULO"/>
+    </property>
+    <property name="telefono" type="java.lang.Long">
+      <column name="TELEFONO"/>
+    </property>
+    <property name="ayudacontrasena" type="string">
+      <column length="70" name="AYUDACONTRASENA"/>
+    </property>
+    <property name="nombre" type="string">
+      <column length="60" name="NOMBRE"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="ordenTrabajos" table="ORDEN_TRABAJO">
+      <key>
+        <column length="10" name="RUT_P" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.entidades.OrdenTrabajo"/>
+    </set>
+  </class>
+</hibernate-mapping>

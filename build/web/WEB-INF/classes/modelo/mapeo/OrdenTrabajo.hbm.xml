@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-11-2015 16:48:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="BDserviciotecnico" name="modelo.entidades.OrdenTrabajo" optimistic-lock="version" schema="dbo" table="ORDEN_TRABAJO">
+    <id name="numOrden" type="long">
+      <column name="NUM_ORDEN"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="modelo.entidades.Cliente" fetch="select" name="cliente">
+      <column length="10" name="RUT_C" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.entidades.Equipo" fetch="select" name="equipo">
+      <column length="8" name="IMEI" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.entidades.Personal" fetch="select" name="personal">
+      <column length="10" name="RUT_P" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="modelo.entidades.Tienda" fetch="select" name="tienda">
+      <column name="COD_TIENDA" not-null="true"/>
+    </many-to-one>
+    <property name="fechaIng" type="timestamp">
+      <column length="23" name="FECHA_ING" not-null="true"/>
+    </property>
+    <property name="fechaEnt" type="timestamp">
+      <column length="23" name="FECHA_ENT" not-null="true"/>
+    </property>
+    <property name="abono" type="long">
+      <column name="ABONO" not-null="true"/>
+    </property>
+    <property name="total" type="long">
+      <column name="TOTAL" not-null="true"/>
+    </property>
+    <property name="descripObser" type="string">
+      <column length="100" name="DESCRIP_OBSER"/>
+    </property>
+    <property name="falla" type="string">
+      <column length="30" name="FALLA" not-null="true"/>
+    </property>
+    <property name="diagnostico" type="string">
+      <column length="100" name="DIAGNOSTICO"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="10" name="ESTADO"/>
+    </property>
+    <property name="serie" type="string">
+      <column length="7" name="SERIE"/>
+    </property>
+  </class>
+</hibernate-mapping>

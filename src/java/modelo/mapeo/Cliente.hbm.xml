@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-11-2015 16:48:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="BDserviciotecnico" name="modelo.entidades.Cliente" optimistic-lock="version" schema="dbo" table="CLIENTE">
+    <id name="rutC" type="string">
+      <column length="10" name="RUT_C"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="telefono" type="java.lang.Long">
+      <column name="TELEFONO"/>
+    </property>
+    <property name="email" type="string">
+      <column length="60" name="EMAIL"/>
+    </property>
+    <property name="direccion" type="string">
+      <column length="60" name="DIRECCION"/>
+    </property>
+    <property name="nombre" type="string">
+      <column length="60" name="NOMBRE"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="ordenTrabajos" table="ORDEN_TRABAJO">
+      <key>
+        <column length="10" name="RUT_C" not-null="true"/>
+      </key>
+      <one-to-many class="modelo.entidades.OrdenTrabajo"/>
+    </set>
+  </class>
+</hibernate-mapping>
